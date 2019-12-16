@@ -1,0 +1,32 @@
+ {% extends 'layout.html'%}{% load static %} {% block content %} {% for picture in pictures %}
+<div class="card-rows w-50 mx-auto mb-5">
+    <div class="card card-design" style="height: 40em;">
+        <img src="static/img/{{picture.picture_url}}" class="card-image-top imgs" alt="">
+        <div class="card-body">
+            <h4 class="card-title text-info">{{ picture.picture_name }}</h4>
+            <p class="card-text"> {{ picture.picture_description }}</p>
+            <div class="card-footer w-30 text-center" style="margin-left:30em; border-radius:50px; background-color:paleturquoise;">
+                {{ picture.place_of_picture }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<style>
+    .card-text {
+        margin-left: 10px;
+    }
+    
+    .card-design {
+        border-style: solid;
+        border-width: 3px;
+        border-color: gray;
+        border-radius: 50px;
+    }
+    
+    .imgs {
+        border-radius: 47px 47px 0 0;
+    }
+</style>
+{% endblock %}

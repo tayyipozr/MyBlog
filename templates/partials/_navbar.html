@@ -1,0 +1,23 @@
+{% load static%}
+
+<header class="header p-2">
+    <div class="navbar sticky-navbar navbar-expand-sm navbar-light mb-5 mt-4 w-100">
+        <div class="container w-30">
+            <ul class="navbar-nav">
+                <img class="navbar-brand" src="{% static 'img/icon4.png' %}" width="60" height="60" alt="">
+                <li class="nav-item active p-2">
+                    <a href="{% url 'home' %}" class="nav-link">Tayyip Özer</a>
+                </li>
+                <li {% if 'software' in request.path %} class="nav-item active p-2" {% else %} class="nav-item" {% endif %}>
+                    <a href="{% url 'software' %}" class="nav-link mx-3">Software</a>
+                </li>
+                <li {% if 'postcard' in request.path %} class="nav-item active p-2" {% else %} class="nav-item" {% endif %}>
+                    <a href="{% url 'postcard' %}" class="nav-link mx-3">Postcard</a>
+                </li>
+                <li {% if 'about' in request.path %} class="nav-item active p-2" {% else %} class="nav-item" {% endif %}>
+                    <a href="{% url 'about' %}" class="nav-link mx-3">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
