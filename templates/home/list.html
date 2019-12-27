@@ -1,24 +1,26 @@
-{% extends 'layout.html' %} {% block content %} {% if articles %}
+{% extends 'layout.html' %}{% load humanize %} {% block content %} {% if articles %}
+
 <div class="inline-block w-75 mx-auto">
     {% for article in articles %}
     <div class="card card-design my-5 p-3 w-75 mx-auto">
-        <h1 class="card-head text-center"> {{ article.name }}</h1>
-        <a class="blcokquote text-justify p-2">
-            <h5>
-                &emsp;{{ article.description }}
-            </h5>
-            <footer class="blockquote-footer text-right">
-                {{article.author}} <br> {{ article.created_date }}
+        <h2 class="card-head text-center">
+            <a class="text-info" style="text-decoration:none;" href=" {% url 'detail' article.slug %} ">
+                {{ article.name }} 
+            </a>
+            </h2 ">
+        <a class="blcokquote text-justify p-2 ">
+                &emsp;{{ article.description |truncatewords:50 }}
+            <footer class="blockquote-footer text-right ">
+                {{article.author}} <br> {{ article.created_date | timesince }} before
             </footer>
-            </blockquote>
     </div>
     {% endfor %}
 </div>
 
 {% else %}
-<div class="alert alert-warning">
+<div class="alert alert-warning ">
     <p>
-        No Movies
+        No Articles
     </p>
 </div>
 {% endif %}
